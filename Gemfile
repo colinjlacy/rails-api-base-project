@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 # Application Gems:
+gem 'active_model_serializers'
 gem 'devise'
 gem 'figaro'
 
@@ -40,6 +41,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
+  gem "compass-rails", github: "Compass/compass-rails", branch: "master"
+  gem 'furatto'
+  gem 'font-awesome-rails'
+  gem 'simple_form'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
