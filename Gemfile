@@ -42,11 +42,6 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
-  gem 'sabisu_rails', github: "IcaliaLabs/sabisu-rails"
-  gem "compass-rails", github: "Compass/compass-rails", branch: "master"
-  gem 'furatto'
-  gem 'font-awesome-rails'
-  gem 'simple_form'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
