@@ -18,6 +18,15 @@ class Api::V1::UsersController < ApplicationController
 		end
 	end
 
+	def update
+		user = current_user
+
+		if user && user.update(user_params)
+			render json: user, status: 200, location: [:api, user]
+		else
+			render json: { errors: "Not allowed" }, status: 422
+		end
+	end
 
 	def destroy
 		user = User.find(params[:id])

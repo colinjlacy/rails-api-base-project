@@ -56,9 +56,13 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 		context "when is successfully updated" do
 			before(:each) do
 				@user = FactoryGirl.create :user
+				request.headers['Authorization'] =  @user.auth_token
 				patch :update, { id: @user.id,
 								 user: { email: "newmail@example.com" } }, format: :json
 			end
+			# before(:each) do
+			# 	@user = FactoryGirl.create :user
+			# end
 
 			it "renders the json representation for the updated user" do
 				user_response = JSON.parse(response.body, symbolize_names: true)
@@ -80,9 +84,9 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 				expect(user_response).to have_key(:errors)
 			end
 
-			it "renders the json errors on whye the user could not be created" do
+			it "renders the json errors on why the user could not be updated" do
 				user_response = JSON.parse(response.body, symbolize_names: true)
-				expect(user_response[:errors][:email]).to include "is invalid"
+				expect(user_response[:errors]).to include "Not allowed"
 			end
 
 			it { is_expected.to respond_with 422 }
